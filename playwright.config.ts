@@ -9,10 +9,18 @@ import { defineConfig, devices } from '@playwright/test';
 // dotenv.config({ path: '.env' });
 
 export const Timeout = {
+  veryShort: 1000,
   short: 5000,
   medium: 10000,
   long: 15000,
 };
+
+export const TestData = {
+  validUserName: 'standard_user',
+  validPassword: 'secret_sauce',
+  invalidUserName: 'invalid_user',
+  invalidPassword: 'invalid_password',
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -33,7 +41,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://www.saucedemo.com/',
+    baseURL: 'https://www.saucedemo.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
